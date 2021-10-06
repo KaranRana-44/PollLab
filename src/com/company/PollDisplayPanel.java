@@ -91,6 +91,21 @@ public class PollDisplayPanel extends JPanel {
             g.setColor(Color.RED);
             degrees = countToDegrees(count1, total);
             drawSector(g, x, y, r, fromDegree, degrees);
+            System.out.println(name1 + ":" + count1 + "," + degrees);
+
+            fromDegree += degrees;
+
+            g.setColor(Color.GREEN);
+            degrees = countToDegrees(count2, total);
+            drawSector(g, x, y, r, fromDegree, degrees);
+            System.out.println(name2 + ":" + count2 + "," + degrees);
+
+            fromDegree += degrees;
+
+            g.setColor(Color.BLUE);
+            degrees = Math.max(360 - fromDegree, 0);
+            drawSector(g, x, y, r, fromDegree, degrees);
+            System.out.println(name3 + ":" + count3 + "," + degrees);
 
             //_________________________________________________
 
@@ -110,11 +125,11 @@ public class PollDisplayPanel extends JPanel {
         y += (r + 20);
         g.setColor(Color.BLACK);
 
-        //g.drawString( _______________ , x - r, y);
+        g.drawString( name1 , x - r, y);
 
-        //g.drawString( _______________ , x, y);
+        g.drawString( name2 , x, y);
 
-        //g.drawString( _______________ , x + r, y);
+        g.drawString( name3 , x + r, y);
 
 
         // Display the color squares:
@@ -132,8 +147,9 @@ public class PollDisplayPanel extends JPanel {
     // corresponds to count / total, rounded to the nearest integer.
     private int countToDegrees(int count, int total)
     {
+        int ratio = (360*count)/total;
 
-        return 0;
+        return ratio;
     }
 
 

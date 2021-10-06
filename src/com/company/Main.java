@@ -10,5 +10,6 @@ public class Main {
 	// write your code here
         PollDisplayPanel p1= new PollDisplayPanel("Jeoff", "Norbert","Bob");
         System.out.println(p1);
+
     }
 }
